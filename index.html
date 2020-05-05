@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vueのテスト</title>
+  <title>まんが日本昔ばなし最強キャラ考察ブログ</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
   <div class="container">
     <header v-if="a===3" id='app'>
       <a :href="url">
-        <img :src="img_url" :alt="img_alt" width="200px">
+        <img :src="img_url" :alt="img_alt" width="100px" height="100px">
+        <font size="24px" color="#ff7f50">まんが日本昔ばなし最強キャラ考察ブログ</font>
       </a>
     </header>
 
@@ -20,8 +21,10 @@
           <div class="row">
 
             <div v-for="item in items" class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card mb-4 shadow-sm" >
+                <div align="center">
+                  <img :src="item.thumb" alt="サムネイルが入ります。" height="200px" width="200px">
+                </div>
                 <div class="card-body">
                   <p class="card-text">
                     <span v-html="item.name"></span>
@@ -31,7 +34,7 @@
                       <button @click='btnClick' type="button" class="btn btn-sm btn-outline-secondary">View</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                     </div>
-                    <small class="text-muted">{{item.minutes}} mins</small>
+                    <small class="text-muted">{{item.comments}} comments</small>
                   </div>
                 </div>
               </div>
@@ -56,21 +59,39 @@
     data: {
       message: 'Hello kikagaku',
       url: "https://www.kikagaku.co.jp/",
-      img_url: "https://www.kikagaku.co.jp/_nuxt/img/ead0d84.svg",
-      img_alt: "キカガク",
+      img_url: "https://lh3.googleusercontent.com/proxy/7mbxdSaP8aqM9sT5dtVMdw3Mbs_sjphnaczj5xhFU8Sz_gTi-qbFa1lzg3CnnEEABdnm-Vxnvs_TEpJAvIOHZxAHF47WZLtBGcHUZ6K61Uuwd5kQV6tv",
+      img_alt: "まんが日本昔ばなし",
       a: 3,
       items: [
         {
-          name: 'ここに私の自己紹介が入ります。<br>自己紹介２</br>',
-          minutes: 10
+          name: 'いろいろ考えて桃太郎が最強な件',
+          comments: 190,
+          thumb: "https://1.bp.blogspot.com/-0S46QU6KoCM/WxvKQsHCcnI/AAAAAAABMn4/QEjMZyeeJVIrGAmauqC5F887L--c8hzpACLcBGAs/s400/monogatari_momotarou_solo.png"
         },
         {
-          name: 'b',
-          minutes: 11
+          name: 'OPに出てくる龍に誰も勝てなくて草',
+          comments: 226,
+          thumb: "https://dcdn.cdn.nimg.jp/niconews/articles/body_images/6511524/254af5563e0ee4b190305f9ff03e22ff7363d60dc1535bc0b393f253e3b85e1f5b2f1ac079429635458d73a622b708610bb044e3e18f954d26b52b84827504a2"
         },
         {
-          name: 'c',
-          minutes: 9
+          name: '最強キャラランキングTOP5',
+          comments: 899,
+          thumb: "https://smashlog.games/wp-content/uploads/2019/01/6-1.png"
+        },
+        {
+          name: 'あずきときに勝てる奴おるんか？',
+          comments: 9,
+          thumb: "http://www.figure.kanaya440.com/images/items/gegege_hero/013.jpg"
+        },
+        {
+          name: 'わらしべ長者が最終的に武器と交換したら',
+          comments: 57,
+          thumb: "https://assets.st-note.com/production/uploads/images/21040681/rectangle_large_type_2_5dd4385aa21ca98007d12f163efb49f9.png?fit=bounds&quality=60&width=1280"
+        },
+        {
+          name: 'さるかに合戦のかに側の復讐がエグすぎるｗｗｗｗｗｗｗ',
+          comments: 0,
+          thumb: "http://kotodama.日本伝.com/wp-content/uploads/2015/03/sarukanigassen.jpg"
         }
       ]
     },
