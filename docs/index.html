@@ -8,11 +8,11 @@
 </head>
 <body>
   <div class="container">
-    <header v-if="a===3" id='app'>
+    <header id='app'>
       <a :href="url">
         <img :src="img_url" :alt="img_alt" width="100px" height="100px">
-        <font size="24px" color="#ff7f50">まんが日本昔ばなし最強キャラ考察ブログ</font>
-      </a>
+        <font size="24" color="#f4a460">まんが日本昔ばなし最強キャラ考察ブログ</font>
+      </a>     
     </header>
 
     <section id='blog'>
@@ -31,16 +31,33 @@
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button @click='btnClick' type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                     </div>
                     <small class="text-muted">{{item.comments}} comments</small>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
+        </div>
+      </div>
+    </section>
+    <br>
+    <section id="form">
+      <div style="background-color : #AAEEDD">
+        <h3>あなたの好きな昔話は？</h3>
+        <input type="radio" v-model="radioValue" value="花咲かじいさん">花咲かじいさん
+        <input type="radio" v-model="radioValue" value="桃太郎">桃太郎
+        <input type="radio" v-model="radioValue" value="笠地蔵">笠地蔵
+        <p>わたしの好きな昔ばなしは {{radioValue}}</p>
+
+        <div v-if="!like">
+          <button class="btn btn-info" @click="like=true" type="button">
+            送信
+          </button> 
+        </div>
+        <div v-else="">
+          <p v-html="bouya"></h4>
         </div>
       </div>
     </section>
@@ -57,9 +74,8 @@
   const app = new Vue({
     el: '.container',
     data: {
-      message: 'Hello kikagaku',
-      url: "https://www.kikagaku.co.jp/",
-      img_url: "https://lh3.googleusercontent.com/proxy/7mbxdSaP8aqM9sT5dtVMdw3Mbs_sjphnaczj5xhFU8Sz_gTi-qbFa1lzg3CnnEEABdnm-Vxnvs_TEpJAvIOHZxAHF47WZLtBGcHUZ6K61Uuwd5kQV6tv",
+      url: "http://nihon.syoukoukai.com/",
+      img_url: "img/mukashibanashi.jpeg",
       img_alt: "まんが日本昔ばなし",
       a: 3,
       items: [
@@ -93,11 +109,14 @@
           comments: 0,
           thumb: "http://kotodama.日本伝.com/wp-content/uploads/2015/03/sarukanigassen.jpg"
         }
-      ]
+      ],
+      like: false ,
+      bouya: '<h4 style="color: blue" >ぼうや良い子だねんねしな</h4>' ,
+      radioValue: '',
     },
     methods:{
-      btnClick(){
-        console.log('Click')
+      countUp: function(){
+        this.count_num++;       
       }
     }
   })
